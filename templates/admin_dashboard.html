@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Administrador</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+    <h1>Bienvenido Administrador</h1>
+    <h2>Lista de Guarderías</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Dirección</th>
+                <th>Teléfono</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for guarderia in guarderias %}
+                <tr>
+                    <td>{{ guarderia.id }}</td>
+                    <td>{{ guarderia.nombre }}</td>
+                    <td>{{ guarderia.direccion }}</td>
+                    <td>{{ guarderia.telefono }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{{ url_for('logout') }}">Cerrar Sesión</a>
+</body>
+</html>
